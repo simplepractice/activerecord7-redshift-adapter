@@ -359,6 +359,7 @@ module ActiveRecord
           m.alias_type 'timestamptz', 'timestamp'
           m.register_type 'date', Type::Date.new
           m.register_type 'time', Type::Time.new
+          m.register_type 'super', Type::Json.new
 
           m.register_type 'timestamp' do |_, _, sql_type|
             precision = extract_precision(sql_type)

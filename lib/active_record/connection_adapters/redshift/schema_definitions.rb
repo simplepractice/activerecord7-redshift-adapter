@@ -41,11 +41,23 @@ module ActiveRecord
         end
 
         def json(name, **options)
-          column(name, :json, options)
+          column(name, :super, **options)
         end
 
         def jsonb(name, **options)
-          column(name, :jsonb, options)
+          column(name, :super, **options)
+        end
+
+        def binary(name, **options)
+          column(name, :varbyte, **options)
+        end
+
+        def text(name, **options)
+          unless options.has_key?(:limit)
+            options[:limit] = options[:size] == :tiny ? 255 : 65535
+          end
+
+          super
         end
       end
 

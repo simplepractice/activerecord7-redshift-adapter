@@ -13,7 +13,9 @@ Usage
 For Rails 7, write following in Gemfile:
 
 ```ruby
-gem 'activerecord7-redshift-adapter', git: 'https://github.com/pennylane-hq/activerecord7-redshift-adapter.git'
+git_source(:fork) { |name| "https://github.com/simplepractice/#{name}.git" }
+
+gem 'activerecord7-redshift-adapter', fork: 'activerecord7-redshift-adapter'
 ```
 
 In database.yml
